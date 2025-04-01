@@ -56,7 +56,7 @@ export function unflatten(parsed, revivers) {
 			if (typeof value[0] === 'string') {
 				const type = value[0];
 
-				const reviver = revivers?.[type];
+				const reviver = revivers && revivers[type];
 				if (reviver) {
 					return (hydrated[index] = reviver(hydrate(value[1])));
 				}
